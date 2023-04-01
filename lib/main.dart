@@ -11,20 +11,42 @@ void main() {
 }
 
 class App extends StatelessWidget {
-  // @ 이 annotation(어노테이션) 은 flutter 에 관한건 아니고 dart의 것임
-  // 부모 class 에 이미 있는 메소드를 override 한다는것
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Hello flutter"),
-          centerTitle: true, // 중앙정렬
-          elevation: 10, // 밑의 그림자 0 하면 그림자가 사라짐!
-        ), // 여기 들어가는 Text 도 다 widget
-        body: Center(child: Text("Hello world!")), // 여기도 widget 모든것이 widget!
-        // 여기서 Center 은 child 이 중앙으로 오게 해주는 역활을함.
-      ),
+          backgroundColor: Color(0xFF181818), // #181818
+          body: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 40),
+            child: Column(children: [
+              SizedBox(
+                height: 80,
+              ),
+              Row(
+                mainAxisAlignment:
+                    MainAxisAlignment.end, // MainAxisAlignment -> 수직방향
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        "Hey, Selena",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 28,
+                            fontWeight: FontWeight.w800),
+                      ),
+                      Text(
+                        "Welcome Back",
+                        style: TextStyle(
+                            color: Colors.white.withOpacity(0.8), fontSize: 18),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ]),
+          )),
     );
   }
 }
